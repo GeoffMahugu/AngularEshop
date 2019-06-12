@@ -61,5 +61,15 @@ export const DummyProducts: Product[] = [
     img: '../../assets/products/5.jpg',
     category: 'Fashion'
   },
+  {
+    name: ' Nike Febby',
+    slug: 'nikey-febby',
+    price: 8900,
+    currency: 'KSH',
+    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur vitae exercitationem nemo, optio reiciendis
+    praesentium fuga molestias quas eos? Ab corrupti fuga molestiae iste pariatur temporibus molestias debitis`,
+    img: '../../assets/products/6.jpg',
+    category: 'Fashion'
+  },
 ]
 

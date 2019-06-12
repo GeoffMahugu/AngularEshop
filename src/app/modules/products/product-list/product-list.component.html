@@ -10,15 +10,21 @@
             <span class="product-name">{{i.name}}</span>
           </div>
           <div class="price-container">
-            <span>{{i.price}} <sup>{{i.currency}}</sup></span>
+            <span>{{i.price | number}} <sup>{{i.currency}}</sup></span>
           </div>
           <div class="description-wrapper">
             <p>{{i.description}}</p>
           </div>
           <div class="buy-btn-wrapper">
-            <button mat-stroked-button color="primary" class="but-button">Add to Cart</button>
+            <button mat-stroked-button color="primary" class="but-button" (click)="addToCart(i);">Add to Cart</button>
           </div>
         </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx">
+      <div fxFlex.gt-sm="50" fxFlex.lt-md="100">
+        <button mat-stroked-button color="warm" class="but-button" (click)="sharedService.clearCart();">Clear
+          Cart</button>
       </div>
     </div>
 
