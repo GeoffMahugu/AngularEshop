@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300,500,700&display=swap');
 :root {
   --colors-primary-white: #ffffff;
   --colors-primary-grey: #8c8c8c;
   --colors-text-purple: #443a77;
   --colors-text-purple-dark: #291748;
+  --colors-skeleton-grey: #d8d8d8;
 }
 
 
@@ -12,4 +13,12 @@ body { margin: 0; font-family: 'Abel', sans-serif;
   font-family: 'Open Sans Condensed', sans-serif; }
 .body-wrapper {
   padding-top: 60px;
+}
+.custom-back-btn {
+  margin: 20px 0px;
+  width: 100%;
+  color: #fff;
+}
+.btn-wrapper {
+  text-align: center;
 }
