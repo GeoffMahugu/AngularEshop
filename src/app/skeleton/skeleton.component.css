@@ -4,6 +4,10 @@
   position: fixed;
   z-index: 100;
 }
+.logo-img, .cart-icon  {
+  outline: none;
+  cursor: pointer;
+}
 .logo-img {
   height: 50px;
 }
@@ -13,8 +17,6 @@
 .cart-icon {
   margin-right: 20px;
   color: var(--colors-primary-grey);
-  outline: none;
-  cursor: pointer;
 }
 .products-container-wrapper {
   border-radius:20px;

@@ -10,20 +10,23 @@ import { SubSink } from 'subsink';
 })
 export class CartComponent implements OnInit {
   private cart: CartModel;
+  private basketCount: number;
   private subs = new SubSink();
   constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
     this.cart = this.sharedService.getLocalCart();
-    console.log('CART::::::::::::::::');
-    console.log(this.cart);
+    if (this.cart) {
+      this.basketCount = this.cart.basket.length;
+    }
     this.updateCart();
   }
   updateCart() {
     this.subs.add(
       this.sharedService.cartObservable.subscribe(data => {
-        console.log('@@@@@@@@@@@@@@', data);
         this.cart = data;
+        this.basketCount = this.cart.basket.length;
+
       })
     );
   }

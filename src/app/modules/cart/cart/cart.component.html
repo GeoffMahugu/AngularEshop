@@ -5,7 +5,7 @@
         <h1 class="cart-header">Cart</h1>
       </div>
       <div fxFlex="100">
-        <ng-container *ngIf="cart; else noCartTemp">
+        <ng-container *ngIf="basketCount; else noCartTemp">
           <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="product-item"
             *ngFor="let i of cart.basket">
             <div fxFlex="20">

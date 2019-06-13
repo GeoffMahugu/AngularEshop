@@ -63,7 +63,13 @@ export class SharedService {
     localStorage.removeItem('basket');
     this.basketSource.next([]);
     localStorage.removeItem('cart');
-    this.cartSource.next();
+
+    const newCart = {
+      basket: [],
+      cartTotal: 0
+    } as CartModel;
+    this.cart = newCart;
+    this.cartSource.next(newCart);
 
   }
   getCart() {
