@@ -8,10 +8,10 @@
         <ng-container *ngIf="basketCount; else noCartTemp">
           <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="product-item"
             *ngFor="let i of cart.basket">
-            <div fxFlex="20">
+            <div fxFlex.gt-sm="20" fxFlex.lt-md="40">
               <img src="{{i.img}}" alt="{{i.name}}" class="cart-product-img">
             </div>
-            <div fxFlex="80">
+            <div fxFlex.gt-sm="20" fxFlex.lt-md="60">
               <span class="cart-product-name">{{i.name}}</span><br />
               <span>{{i.category}}</span><br />
               <span class="cart-product-price">{{i.price | number}} <sup>{{i.currency}}</sup></span>
