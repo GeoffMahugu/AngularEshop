@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product, DummyProducts } from '../../../models/product.model';
 import { SharedService } from '../../shared/shared.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-product-list',
@@ -12,8 +13,7 @@ export class ProductListComponent implements OnInit {
   constructor(public sharedService: SharedService) { }
 
   ngOnInit() {
-    this.products = DummyProducts;
-    console.log(this.products);
+    this.products = _.shuffle(DummyProducts);
   }
 
   addToCart(product: Product) {
