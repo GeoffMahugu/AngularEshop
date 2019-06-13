@@ -1,6 +1,13 @@
 # Eshop
+This an [Angular](https://angular.io) project thats a starter kit to anyone trying to build an ecommerce site.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+### Features Include
+* Lazy Loading
+* Service Worker
+
+The project is being hosted on firebase🔥 at: [Demo](https://skygarden-857d6.firebaseapp.com/)
+
+![Preview](https://user-images.githubusercontent.com/17265995/59413597-8c664900-8dc8-11e9-8ac6-2f4dbaa1f9ab.png)
 
 ## Development server
 
