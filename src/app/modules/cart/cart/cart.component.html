@@ -1,3 +1,62 @@
-<p>
-  cart works!
-</p>
+<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" class="body-wrapper">
+  <div fxFlex.gt-sm="40" fxFlex.lt-md="100" class="cart-wrapper">
+    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
+      <div fxFlex="100">
+        <h1 class="cart-header">Cart</h1>
+      </div>
+      <div fxFlex="100">
+        <ng-container *ngIf="basketCount; else noCartTemp">
+          <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="product-item"
+            *ngFor="let i of cart.basket">
+            <div fxFlex="20">
+              <img src="{{i.img}}" alt="{{i.name}}" class="cart-product-img">
+            </div>
+            <div fxFlex="80">
+              <span class="cart-product-name">{{i.name}}</span><br />
+              <span>{{i.category}}</span><br />
+              <span class="cart-product-price">{{i.price | number}} <sup>{{i.currency}}</sup></span>
+            </div>
+          </div>
+          <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
+            <div fxFlex="50">
+              <button mat-flat-button color="accent" class="custom-back-btn" [routerLink]="['/']"
+                style="width: 80%;">Back Home</button>
+            </div>
+            <div fxFlex="50">
+              <button mat-flat-button color="primary" class="custom-back-btn" (click)="checkout()"
+                style="width: 80%;">Checkout</button>
+            </div>
+          </div>
+
+        </ng-container>
+        <ng-template #noCartTemp>
+          <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
+            <div fxFlex="100" fxLayoutAlign="center center">
+              <p>No prodiucts in the cart</p>
+            </div>
+            <div fxFlex="100">
+              <ng-container *ngFor="let i of [].constructor(3)">
+                <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="product-item">
+                  <div fxFlex="30">
+                    <div class="skeleton-img">&nbsp;</div>
+                  </div>
+                  <div fxFlex="70">
+                    <div class="skeleton-text">&nbsp;</div>
+                    <div class="skeleton-text">&nbsp;</div>
+                    <div class="skeleton-text">&nbsp;</div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+            <div fxFlex="100" class="btn-wrapper">
+              <button mat-flat-button color="accent" class="custom-back-btn" [routerLink]="['/']">Back Home</button>
+            </div>
+          </div>
+        </ng-template>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,8 +16,8 @@ export class ProductListComponent implements OnInit {
     this.products = _.shuffle(DummyProducts);
   }
 
-  addToCart(product: Product) {
-    this.sharedService.addToCart(product);
+  addToBasket(product: Product) {
+    this.sharedService.addToBasket(product);
   }
 
 }

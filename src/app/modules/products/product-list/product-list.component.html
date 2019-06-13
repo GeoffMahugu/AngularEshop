@@ -16,14 +16,14 @@
             <p>{{i.description}}</p>
           </div>
           <div class="buy-btn-wrapper">
-            <button mat-stroked-button color="primary" class="but-button" (click)="addToCart(i);">Add to Cart</button>
+            <button mat-stroked-button color="primary" class="but-button" (click)="addToBasket(i);">Add to Cart</button>
           </div>
         </div>
       </div>
     </div>
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx">
       <div fxFlex.gt-sm="50" fxFlex.lt-md="100">
-        <button mat-stroked-button color="warm" class="but-button" (click)="sharedService.clearCart();">Clear
+        <button mat-flat-button color="accent" class="but-button" (click)="sharedService.clearBasket();">Clear
           Cart</button>
       </div>
     </div>

@@ -7,12 +7,11 @@ import { CartRoutingModule } from './cart-routing.module';
 import { CartComponent } from './cart/cart.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [CartComponent],
   imports: [
     CommonModule,
     SharedModule,
-    CartRoutingModule,
-    CartComponent
+    CartRoutingModule
   ]
 })
 export class CartModule { }
