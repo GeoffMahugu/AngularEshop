@@ -9,7 +9,7 @@ import { SubSink } from 'subsink';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  private cart: CartModel;
+  public cart: CartModel;
   public basketCount: number;
   private subs = new SubSink();
   constructor(private sharedService: SharedService) { }
