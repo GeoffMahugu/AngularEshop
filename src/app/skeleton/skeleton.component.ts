@@ -40,6 +40,7 @@ export class SkeletonComponent implements OnInit, OnDestroy {
       });
     });
   }
+
   getCartItems() {
     this.subs.add(
       this.sharedService.basketObservable.subscribe(data => {
