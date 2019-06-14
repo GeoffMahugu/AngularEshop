@@ -10,7 +10,7 @@ import { SubSink } from 'subsink';
 })
 export class CartComponent implements OnInit {
   private cart: CartModel;
-  private basketCount: number;
+  public basketCount: number;
   private subs = new SubSink();
   constructor(private sharedService: SharedService) { }
 
