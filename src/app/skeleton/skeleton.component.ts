@@ -9,7 +9,7 @@ import { Product } from '../models/product.model';
   styleUrls: ['./skeleton.component.css']
 })
 export class SkeletonComponent implements OnInit, OnDestroy {
-  private cart: CartModel;
+  public cart: CartModel;
   private basket: Product[];
   public basketCount: number;
   private subs = new SubSink();

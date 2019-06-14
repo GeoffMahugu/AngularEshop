@@ -21,7 +21,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/mainfest.json"
+              "src/mainfest.json",
+              "src/manifest.json"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -53,7 +54,9 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "src/ngsw-config.json"
             }
           }
         },
@@ -93,7 +96,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/mainfest.json"
+              "src/mainfest.json",
+              "src/manifest.json"
             ]
           }
         },
