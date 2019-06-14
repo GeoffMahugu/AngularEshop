@@ -5,6 +5,7 @@ import { CartModel } from '../models/cart.model';
 import { Product } from '../models/product.model';
 import { MatSnackBar } from '@angular/material';
 import { SwUpdate, SwPush } from '@angular/service-worker';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-skeleton',
@@ -31,6 +32,7 @@ export class SkeletonComponent implements OnInit, OnDestroy {
     }
     this.getCartItems();
     this.updateSW();
+    this.receivePush();
   }
   updateSW() {
     this.updates.available.subscribe(event => {
@@ -40,7 +42,15 @@ export class SkeletonComponent implements OnInit, OnDestroy {
       });
     });
   }
-
+  receivePush() {
+    this.push.requestSubscription({ serverPublicKey: environment.publicKey })
+      .then(PushSubscription => {
+        console.log(':::::::::::::::::::::::::');
+        console.log(PushSubscription.toJSON());
+        console.log(':::::::::::::::::::::::::');
+        localStorage.setItem('userTokem', JSON.stringify(PushSubscription.toJSON()));
+      });
+  }
   getCartItems() {
     this.subs.add(
       this.sharedService.basketObservable.subscribe(data => {
@@ -51,8 +61,6 @@ export class SkeletonComponent implements OnInit, OnDestroy {
       })
     );
   }
-
-
   ngOnDestroy() {
     this.subs.unsubscribe();
   }

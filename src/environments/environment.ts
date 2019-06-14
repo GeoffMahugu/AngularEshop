@@ -10,7 +10,9 @@ export const environment = {
     databaseURL: 'https://YOUR_APP.firebaseio.com', // Realtime Database
     storageBucket: 'YOUR_APP.appspot.com',          // Storage
     messagingSenderId: '123456789'                  // Cloud Messaging
-  }
+  },
+  publicKey: ''
+
 };
 
 /*
