@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 // Third party library
 import { LazyLoadImageModule, intersectionObserverPreset } from 'ng-lazyload-image';
@@ -32,12 +33,14 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatBadgeModule,
-    MatMenuModule
+    MatMenuModule,
+    ServiceWorkerModule
   ],
   exports: [
     RouterModule,
     HttpClientModule,
     LazyLoadImageModule,
+    ServiceWorkerModule,
     FlexLayoutModule,
     MatSnackBarModule,
     MatButtonModule,
