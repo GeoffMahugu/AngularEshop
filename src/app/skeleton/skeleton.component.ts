@@ -11,7 +11,7 @@ import { Product } from '../models/product.model';
 export class SkeletonComponent implements OnInit, OnDestroy {
   private cart: CartModel;
   private basket: Product[];
-  private basketCount: number;
+  public basketCount: number;
   private subs = new SubSink();
   constructor(private sharedService: SharedService) { }
 
