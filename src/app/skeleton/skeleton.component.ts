@@ -4,7 +4,7 @@ import { SubSink } from 'subsink';
 import { CartModel } from '../models/cart.model';
 import { Product } from '../models/product.model';
 import { MatSnackBar } from '@angular/material';
-import { SwUpdate } from '@angular/service-worker';
+import { SwUpdate, SwPush } from '@angular/service-worker';
 
 @Component({
   selector: 'app-skeleton',
@@ -16,7 +16,12 @@ export class SkeletonComponent implements OnInit, OnDestroy {
   private basket: Product[];
   public basketCount: number;
   private subs = new SubSink();
-  constructor(private sharedService: SharedService, private snackbar: MatSnackBar, private updates: SwUpdate) { }
+  constructor(
+    private sharedService: SharedService,
+    private snackbar: MatSnackBar,
+    private updates: SwUpdate,
+    public push: SwPush
+  ) { }
 
   ngOnInit() {
 

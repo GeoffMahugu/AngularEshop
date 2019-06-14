@@ -6,6 +6,7 @@
   "theme_color": "#2f4858",
   "background_color": "#04212f",
   "orientation": "portrait",
+  "gcm_sender_id": "103953800507",
   "icons": [
     {
       "src": "assets/icons/favicon/android-icon-192x192.png",
