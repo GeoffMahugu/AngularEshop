@@ -4,7 +4,7 @@ import { SubSink } from 'subsink';
 import { CartModel } from '../models/cart.model';
 import { Product } from '../models/product.model';
 import { MatSnackBar } from '@angular/material';
-import { SwUpdate, SwPush } from '@angular/service-worker';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-skeleton',
@@ -19,8 +19,7 @@ export class SkeletonComponent implements OnInit, OnDestroy {
   constructor(
     private sharedService: SharedService,
     private snackbar: MatSnackBar,
-    private updates: SwUpdate,
-    public push: SwPush
+    private updates: SwUpdate
   ) { }
 
   ngOnInit() {
@@ -40,7 +39,6 @@ export class SkeletonComponent implements OnInit, OnDestroy {
       });
     });
   }
-
   getCartItems() {
     this.subs.add(
       this.sharedService.basketObservable.subscribe(data => {
@@ -51,8 +49,6 @@ export class SkeletonComponent implements OnInit, OnDestroy {
       })
     );
   }
-
-
   ngOnDestroy() {
     this.subs.unsubscribe();
   }
