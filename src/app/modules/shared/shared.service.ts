@@ -5,6 +5,9 @@ import { Product } from '../../models/product.model';
 import * as _ from 'lodash';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CartModel } from '../../models/cart.model';
+import { SwPush } from '@angular/service-worker';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +21,7 @@ export class SharedService {
   public cartSource = new Subject<CartModel>();
   public cartObservable = this.cartSource.asObservable();
 
-  constructor(private router: Router, private snackbar: MatSnackBar) {
+  constructor(private router: Router, private snackbar: MatSnackBar, private push: SwPush) {
     this.basket = this.getLocalBasket();
     this.basketSource.next(this.basket);
     this.cart = this.getLocalCart();
@@ -89,6 +92,17 @@ export class SharedService {
   checkout() {
     this.clearBasket();
     this.snackbar.open('Thank you for shopping', 'CLOSE', { duration: 3000 });
+    this.receivePush();
+  }
 
+  receivePush() {
+    try {
+      this.push.requestSubscription({ serverPublicKey: environment.publicKey })
+        .then(PushSubscription => {
+          localStorage.setItem('userTokem', JSON.stringify(PushSubscription.toJSON()));
+        });
+    } catch (e) {
+      console.log(e);
+    }
   }
 }

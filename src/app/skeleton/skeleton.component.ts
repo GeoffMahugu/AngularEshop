@@ -4,8 +4,7 @@ import { SubSink } from 'subsink';
 import { CartModel } from '../models/cart.model';
 import { Product } from '../models/product.model';
 import { MatSnackBar } from '@angular/material';
-import { SwUpdate, SwPush } from '@angular/service-worker';
-import { environment } from 'src/environments/environment';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-skeleton',
@@ -20,8 +19,7 @@ export class SkeletonComponent implements OnInit, OnDestroy {
   constructor(
     private sharedService: SharedService,
     private snackbar: MatSnackBar,
-    private updates: SwUpdate,
-    public push: SwPush
+    private updates: SwUpdate
   ) { }
 
   ngOnInit() {
@@ -32,7 +30,6 @@ export class SkeletonComponent implements OnInit, OnDestroy {
     }
     this.getCartItems();
     this.updateSW();
-    this.receivePush();
   }
   updateSW() {
     this.updates.available.subscribe(event => {
@@ -41,15 +38,6 @@ export class SkeletonComponent implements OnInit, OnDestroy {
         this.updates.activateUpdate().then(() => document.location.reload());
       });
     });
-  }
-  receivePush() {
-    this.push.requestSubscription({ serverPublicKey: environment.publicKey })
-      .then(PushSubscription => {
-        console.log(':::::::::::::::::::::::::');
-        console.log(PushSubscription.toJSON());
-        console.log(':::::::::::::::::::::::::');
-        localStorage.setItem('userTokem', JSON.stringify(PushSubscription.toJSON()));
-      });
   }
   getCartItems() {
     this.subs.add(
