@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans+Condensed:300,500,700&display=swap');
+
+$productShadow: 0px 0px 5px 0px #ff8bb8;
+$darkPink: #ce4e7b;
+$pureWhite: #ffffff;
+$purpleDark: #291748;
+
 :root {
   --colors-primary-white: #ffffff;
   --colors-primary-grey: #8c8c8c;
@@ -6,7 +12,6 @@
   --colors-text-purple-dark: #291748;
   --colors-skeleton-grey: #d8d8d8;
 }
-
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Abel', sans-serif;
@@ -21,4 +26,11 @@ body { margin: 0; font-family: 'Abel', sans-serif;
 }
 .btn-wrapper {
   text-align: center;
+}
+
+@mixin flexCenter ($direction){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
 }

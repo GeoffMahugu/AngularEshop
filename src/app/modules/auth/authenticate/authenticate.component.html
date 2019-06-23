@@ -1,0 +1,43 @@
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+</div>
+
+<ng-template #guest>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx">
+    <div fxFlex.gt-sm="40" fxFlex.lt-md="100" class="auth-wrapper">
+      <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx">
+        <div fxFlex="100" fxLayoutAlign="center center" class="logo-wrapper">
+          <img src="../../../../assets/icons/logo.png" alt="Vazi">
+        </div>
+        <div fxFlex="100" fxLayoutAlign="center center" class="google-btn-wrapper">
+          <button mat-button (click)="auth.googleSignin()">Google SignIn</button>
+        </div>
+        <div fxFlex="100" fxLayoutAlign="center center" class="back-btn-wrapper">
+          <button mat-button [routerLink]="['/']">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #authenticated>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" *ngIf="auth.user$ | async as user">
+    <div fxFlex.gt-sm="40" fxFlex.lt-md="100" class="auth-wrapper">
+      <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx">
+        <div fxFlex="100" fxLayoutAlign="center center" class="logo-wrapper">
+          <img [src]="user.photoURL" alt="{{user.displayName}}">
+        </div>
+        <div fxFlex="100" fxLayoutAlign="center center">
+          <h3 class="username-txt">Hi {{user.displayName}}</h3>
+        </div>
+        <div fxFlex="100" fxLayoutAlign="center center">
+          <p class="login-txt">Welcome back to Vazi. Click on the link below to continue Shopping</p>
+        </div>
+        <div fxFlex.gt-sm="50" fxFlex.lt-md="100" fxLayoutAlign="center center" class="signout-btn-wrapper">
+          <button mat-button (click)="auth.signOut()">SignOut</button>
+        </div>
+        <div fxFlex.gt-sm="50" fxFlex.lt-md="100" fxLayoutAlign="center center" class="back-btn-wrapper">
+          <button mat-button [routerLink]="['/']">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

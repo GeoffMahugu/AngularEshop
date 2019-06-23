@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 // Third Pary imports
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,8 +26,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     SharedModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFirestoreModule.enablePersistence(),
+    AngularFireAuthModule,
 
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

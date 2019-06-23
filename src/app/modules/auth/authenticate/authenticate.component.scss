@@ -1,0 +1,46 @@
+@import '../../../../styles';
+
+.auth-wrapper{
+  button {
+    border-radius: 20px;
+    color: $pureWhite;
+    width: 70%;
+  }
+  .logo-wrapper{
+    padding-top: 10%;
+    text-align: center;
+    img {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+    }
+  }
+  .google-btn-wrapper, .signout-btn-wrapper{
+    button {
+      background-color: $darkPink;
+    }
+  }
+  .google-btn-wrapper{
+    margin-top: 50px;
+  }
+  .signout-btn-wrapper{
+    margin-top: 20px;
+  }
+  .back-btn-wrapper {
+    margin-top: 20px;
+    button {
+      background-color: $purpleDark;
+    }
+  }
+  .username-txt {
+    color: #443a77;
+    margin-top: 35px;
+  }
+  .login-txt {
+    padding: 0px 30px;
+    color: #291748;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+}

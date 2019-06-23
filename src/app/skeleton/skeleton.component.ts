@@ -5,6 +5,7 @@ import { CartModel } from '../models/cart.model';
 import { Product } from '../models/product.model';
 import { MatSnackBar } from '@angular/material';
 import { SwUpdate } from '@angular/service-worker';
+import { AuthService } from '../modules/auth/auth.service';
 
 @Component({
   selector: 'app-skeleton',
@@ -19,7 +20,8 @@ export class SkeletonComponent implements OnInit, OnDestroy {
   constructor(
     private sharedService: SharedService,
     private snackbar: MatSnackBar,
-    private updates: SwUpdate
+    private updates: SwUpdate,
+    public auth: AuthService
   ) { }
 
   ngOnInit() {
