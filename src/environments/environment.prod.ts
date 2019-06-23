@@ -8,5 +8,4 @@ export const environment = {
     messagingSenderId: '123456789'                  // Cloud Messaging
   },
   publicKey: ''
-
 };
