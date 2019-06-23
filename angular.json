@@ -96,7 +96,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/mainfest.json",
               "src/manifest.json"
             ]
           }
