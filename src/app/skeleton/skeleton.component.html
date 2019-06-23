@@ -1,9 +1,28 @@
 <mat-toolbar class="menu-toolbar">
   <img src="../../assets/icons/logo_transparent.png" alt="Vazi" class="logo-img" [routerLink]="['/']">
-  <span class="example-fill-remaining-space"></span>
-  <span>
+  <div class="search-wrapper" fxHide.lt-md>
+    <input type="text" placeholder="search" color="primary">
+  </div>
+  <div class="nav-spacer"></div>
+
+  <div *ngIf="auth.user$ | async; then authenticated else signIn">
+  </div>
+  <ng-template #authenticated>
+    <div *ngIf="auth.user$ | async as user" class="avator-wrapper">
+      <img [src]="user.photoURL" alt="{{user.displayName}}" [routerLink]="['/auth']">
+    </div>
+  </ng-template>
+  <ng-template #signIn>
+    <button mat-stroked-button color="primary" [routerLink]="['/auth']" class="signin-btn">Sign In</button>
+  </ng-template>
+
+
+  <!-- <div>
+    <button mat-stroked-button color="primary" [routerLink]="['/auth']" class="signin-btn">Sign In</button>
+  </div> -->
+  <div class="nav-cart-icon-wrapper">
     <mat-icon matBadge="{{basketCount}}" matBadgeColor="primary" class="cart-icon" [routerLink]="['/cart']"
       routerLinkActive="router-link-active">shopping_cart</mat-icon>
-  </span>
+  </div>
 </mat-toolbar>
 <router-outlet></router-outlet>

@@ -18,6 +18,10 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'auth',
+    loadChildren: './modules/auth/auth.module#AuthModule',
+  },
+  {
     path: '**',
     component: SkeletonComponent,
     data: { depth: 0 },

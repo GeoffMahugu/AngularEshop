@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 .products-container-wrapper{
   margin: 20px;
   border-radius: 20px;
@@ -10,7 +12,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 0px 5px 0px #ff8bb8;
+  box-shadow: $productShadow;
   border-radius: 5px;
   max-height: 370px;
   height: 370px;
