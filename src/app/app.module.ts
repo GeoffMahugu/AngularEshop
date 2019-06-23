@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 // Third Pary imports
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
@@ -31,7 +31,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [],
+  providers: [AngularFirestoreModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
