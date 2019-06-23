@@ -9,7 +9,7 @@ import { SwUpdate } from '@angular/service-worker';
 @Component({
   selector: 'app-skeleton',
   templateUrl: './skeleton.component.html',
-  styleUrls: ['./skeleton.component.css']
+  styleUrls: ['./skeleton.component.scss']
 })
 export class SkeletonComponent implements OnInit, OnDestroy {
   public cart: CartModel;
