@@ -17,9 +17,10 @@ import {
   MatBadgeModule,
   MatMenuModule
 } from '@angular/material';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [ProductComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -47,7 +48,8 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatBadgeModule,
-    MatMenuModule
+    MatMenuModule,
+    ProductComponent
   ]
 })
 export class SharedModule { }
