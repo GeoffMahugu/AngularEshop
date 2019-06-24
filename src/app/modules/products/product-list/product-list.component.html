@@ -2,23 +2,7 @@
   <div fxFlex.gt-sm="80" fxFlex.lt-md="100" class="products-container-wrapper">
     <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
       <div fxFlex.gt-sm="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let i of productsObs$ | async">
-        <div class="product-wrapper">
-          <div class="product-img-wrapper">
-            <img src="{{i.img}}" alt="{{i.name}}" class="product-img">
-          </div>
-          <div>
-            <span class="product-name">{{i.name}}</span>
-          </div>
-          <div class="price-container">
-            <span>{{i.price | number}} <sup>{{i.currency}}</sup></span>
-          </div>
-          <div class="description-wrapper">
-            <p>{{i.description}}</p>
-          </div>
-          <div class="buy-btn-wrapper">
-            <button mat-stroked-button color="primary" class="but-button" (click)="addToBasket(i);">Add to Cart</button>
-          </div>
-        </div>
+        <app-product [data]="i"></app-product>
       </div>
     </div>
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx">

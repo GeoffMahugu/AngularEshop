@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-list',
@@ -19,13 +19,14 @@ export class ProductListComponent implements OnInit {
   productsObs$: Observable<Product[]>;
   constructor(
     public sharedService: SharedService,
-    private afs: AngularFirestore,
+    private db: AngularFirestore,
   ) { }
 
   ngOnInit() {
     // this.products = _.shuffle(DummyProducts);
-    this.productsCollection$ = this.afs.collection('products');
+    this.productsCollection$ = this.db.collection('products');
     this.productsObs$ = this.productsCollection$.valueChanges();
+
   }
 
   addToBasket(product: Product) {

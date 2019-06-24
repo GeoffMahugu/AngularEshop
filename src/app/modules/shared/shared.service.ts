@@ -105,4 +105,13 @@ export class SharedService {
       console.log(e);
     }
   }
+
+  slugifyText(text) {
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
+  }
 }
