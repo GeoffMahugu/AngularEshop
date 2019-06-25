@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -15,7 +15,12 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatBadgeModule,
-  MatMenuModule
+  MatMenuModule,
+  MatOptionModule,
+  MatFormFieldModule,
+  MatCheckboxModule,
+  MatSelectModule,
+  MatInputModule,
 } from '@angular/material';
 import { ProductComponent } from './product/product.component';
 
@@ -25,6 +30,8 @@ import { ProductComponent } from './product/product.component';
     CommonModule,
     RouterModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     LazyLoadImageModule.forRoot({
       preset: intersectionObserverPreset
     }),
@@ -35,11 +42,18 @@ import { ProductComponent } from './product/product.component';
     MatIconModule,
     MatBadgeModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatInputModule,
     ServiceWorkerModule
   ],
   exports: [
     RouterModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     LazyLoadImageModule,
     ServiceWorkerModule,
     FlexLayoutModule,
@@ -49,6 +63,11 @@ import { ProductComponent } from './product/product.component';
     MatIconModule,
     MatBadgeModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatOptionModule,
+    MatInputModule,
+    MatSelectModule,
     ProductComponent
   ]
 })

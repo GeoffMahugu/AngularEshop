@@ -1,0 +1,128 @@
+@import '../../../../styles.scss';
+
+.menu-toolbar {
+  background-color: var(--colors-primary-white);
+  box-shadow: 0px 0px 5px 1px #b9b7b7;
+  position: fixed;
+  z-index: 100;
+}
+.logo-img, .cart-icon  {
+  outline: none;
+  cursor: pointer;
+}
+.logo-img {
+  height: 50px;
+}
+.nav-spacer {
+  flex: 1 1 auto;
+}
+.products-container-wrapper {
+  border-radius:20px;
+}
+.signin-btn {
+  border-radius: 20px;
+}
+.nav-cart-icon-wrapper {
+  @include flexCenter(row);
+  width: 45px;
+  mat-icon {
+    color: var(--colors-primary-grey);
+  }
+}
+.search-wrapper {
+  margin-left: 20%;
+  width: 50%;
+  input {
+    box-shadow: $productShadow;
+    border-radius: 20px;
+    height: 34px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #e8e1e1;
+    padding: 0px 25px;
+    color: #443a77;
+    font-size: 15px;
+    font-size: bold;
+  }
+}
+.avator-wrapper {
+  height: 60px;
+  width: 60px;
+  @include flexCenter(row);
+  img{
+    height: 40px;
+    border-radius: 60%;
+    border: 1px solid #e8e1e1;
+    cursor: pointer;
+    outline: none
+  }
+}
+
+.product-page-wrapper {
+  padding: 60px 30px;
+  .product-form-wrapper {
+    mat-form-field{
+      width: 90%;
+      margin: 15px 0px ;
+    }
+  }
+  .submit-btn {
+    // background-color: $darkPink;
+    width: 90%;
+    text-align: center;
+    color: $pureWhite;
+    border-radius: 20px;
+    margin:20px 0px;
+    cursor: pointer;
+  }
+}
+.product-list-wrapper {
+  height: 130px;
+  margin: 10px;
+  width: 100%;
+  box-shadow: $productShadow;
+
+  .product-img-wrapper {
+    height: 100px;
+    @include flexCenter(row);
+    object-fit: contain;
+    img {
+      max-height: 90%;
+      max-width: 115px;
+    }
+  }
+}
+
+.product-list-wrapper-skeleton {
+  height: 130px;
+  margin: 10px;
+  width: 100%;
+  // border: 0.5px solid var(--colors-skeleton-grey);
+  // border-radius: 5px;
+  .list-img-skeleton{
+    background-color: $skeletonGrey;
+    border-radius: 5px;
+    height: 90%;
+    margin: 6px;
+  }
+  .list-product-details-skeleton {
+    div {
+      background-color: $skeletonGrey;
+      height: 20px;
+      border-radius: 20px;
+      margin-top: 10px;
+
+    }
+    div:nth-child(1){
+      margin-top: 20px;
+      width: 60%;
+    }
+    div:nth-child(2){
+      width: 40%;
+    }
+    div:nth-child(3){
+      width: 80%;
+    }
+  }
+
+}
