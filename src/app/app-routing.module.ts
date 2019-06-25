@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 
+import { CanreadGuard } from './modules/auth/guards/canread.guard';
+import { AdminGuard } from './modules/auth/guards/admin.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -24,6 +27,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: './modules/admin/admin.module#AdminModule',
+    canActivate: [AdminGuard]
   },
   {
     path: '**',

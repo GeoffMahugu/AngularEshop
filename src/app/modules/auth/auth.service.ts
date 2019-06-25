@@ -8,14 +8,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
+import { User, Roles } from '../../models/user.model';
 
-
-interface User {
-  uid: string;
-  email: string;
-  photoURL?: string;
-  displayName?: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -57,7 +51,10 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      photoURL: user.photoURL,
+      roles: {
+        subscriber: true
+      }
     };
 
     return userRef.set(data, { merge: true });
@@ -69,5 +66,33 @@ export class AuthService {
     this.snackbar.open('Logged Out', 'CLOSE', {
       duration: 3000
     });
+  }
+
+
+  ///// Role-based Authorization //////
+  canRead(user: User): boolean {
+    const allowed = ['admin', 'subscriber'];
+    return this.checkAuthorization(user, allowed);
+  }
+
+  canEdit(user: User): boolean {
+    const allowed = ['admin'];
+    return this.checkAuthorization(user, allowed);
+  }
+
+  canDelete(user: User): boolean {
+    const allowed = ['admin'];
+    return this.checkAuthorization(user, allowed);
+  }
+
+  // determines if user has matching role
+  private checkAuthorization(user: User, allowedRoles: string[]): boolean {
+    if (!user) return false;
+    for (const role of allowedRoles) {
+      if (user.roles[role]) {
+        return true;
+      }
+    }
+    return false;
   }
 }
