@@ -1,0 +1,125 @@
+<mat-toolbar class="menu-toolbar">
+  <img src="../../../../assets/icons/logo_transparent.png" alt="Vazi" class="logo-img" [routerLink]="['/']">
+  <div class="nav-spacer"></div>
+
+  <div *ngIf="auth.user$ | async; then authenticated else signIn">
+  </div>
+  <ng-template #authenticated>
+    <div *ngIf="auth.user$ | async as user" class="avator-wrapper">
+      <img [src]="user.photoURL" alt="{{user.displayName}}" [routerLink]="['/auth']">
+    </div>
+  </ng-template>
+  <ng-template #signIn>
+    <button mat-stroked-button color="primary" [routerLink]="['/auth']" class="signin-btn">Sign In</button>
+  </ng-template>
+</mat-toolbar>
+<div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="product-page-wrapper">
+  <div fxFlex="50">
+    <form [formGroup]="productFormGroup" class="product-form-wrapper" fxLayout="row wrap" fxLayoutAlign="start start"
+      fxLayoutGap="gappx">
+      <div fxFlex="100" fxLayoutAlign="start start">
+        <h3 class="title-text">Add Products</h3>
+      </div>
+      <div fxFlex="100">
+        <mat-form-field>
+          <input matInput placeholder="Name" name="name" formControlName="name">
+          <mat-error *ngIf="!productFormGroup.controls['name'].valid && productFormGroup.controls['name'].dirty">Please
+            provide the product name</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="70">
+        <mat-form-field>
+          <input matInput type="number" placeholder="Price" name="price" formControlName="price">
+          <mat-error *ngIf="!productFormGroup.controls['price'].valid && productFormGroup.controls['price'].dirty">
+            Please
+            provide the product price</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex.gt-sm="50" fxFlex.lt-md="100">
+        <mat-form-field>
+          <mat-select placeholder="Category" name="category" formControlName="category">
+            <mat-option *ngFor="let i of categories" value="{{i}}">{{i}}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="!productFormGroup.controls['category'].valid && productFormGroup.controls['category'].dirty">Please
+            select a category </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex.gt-sm="50" fxFlex.lt-md="100">
+        <mat-form-field>
+          <mat-select placeholder="Currency" name="currency" formControlName="currency">
+            <mat-option value="KSH">KSH</mat-option>
+            <mat-option value="USD">USD</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="!productFormGroup.controls['currency'].valid && productFormGroup.controls['currency'].dirty">Please
+            select prefered currency </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="70">
+        <mat-form-field>
+          <input matInput type="url" placeholder="Image Url" name="img" formControlName="img">
+          <mat-error *ngIf="!productFormGroup.controls['img'].valid && productFormGroup.controls['img'].dirty">
+            Please
+            provide a valid URL link</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100">
+        <mat-form-field>
+          <textarea matInput placeholder="Textarea" name="description" formControlName="description"></textarea>
+          <mat-error
+            *ngIf="!productFormGroup.controls['description'].valid && productFormGroup.controls['description'].dirty">
+            Please provide product description </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="100">
+        <mat-checkbox formControlName="active">Active on Shop</mat-checkbox>
+        <mat-error *ngIf="!productFormGroup.controls['active'].valid && productFormGroup.controls['active'].dirty">
+          Please select the shop state for the product </mat-error>
+      </div>
+      <div fxFlex="100">
+        <button mat-flat-button class="submit-btn" color="primary" (click)="submitProduct()"
+          [disabled]="!productFormGroup.valid">Add
+          product</button>
+      </div>
+    </form>
+  </div>
+  <div fxFlex="50">
+    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
+      <ng-container *ngIf="productsObs$; else loadingTemp">
+        <div class="product-list-wrapper" *ngFor="let i of productsObs$ | async">
+          <div fxFlex="40">
+            <div class="product-img-wrapper">
+              <img src="{{i.img}}" alt="{{i.name}}">
+            </div>
+          </div>
+          <div fxFlex="60">
+            <div>
+              <span class="product-name">{{i.name}}</span>
+            </div>
+            <div class="price-container">
+              <span>{{i.price | number}} <sup>{{i.currency}}</sup></span>
+            </div>
+            <div class="description-wrapper">
+              <p>{{i.description}}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #loadingTemp>
+        <div class="product-list-wrapper-skeleton" *ngFor="let i of [].constructor(4)">
+          <div fxFlex="40">
+            <div class="list-img-skeleton">&nbsp;</div>
+          </div>
+          <div fxFlex="60" class="list-product-details-skeleton">
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+          </div>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>
