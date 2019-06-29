@@ -28,23 +28,30 @@
       max-height: 130px;
     }
   }
-  // .product-name {
-  //   font-size: 18px;
-  //   font-weight: bold;
-  //   color: var(--colors-text-purple);
-  // }
-  // .price-container {
-  //   font-size: 19px;
-  //   font-weight: 700;
-  //   color: var(--colors-text-purple-dark);
-  // }
-  // .description-wrapper {
-  //   max-height: 63px;
-  //   overflow: hidden;
-  //   p{
-  //     margin: 0px
-  //   }
-  // }
+  .product-img-skeleton {
+    height: 110%;
+    width: 90%;
+    background-color: $skeletonGrey;
+    border-radius: 10px;
+  }
+  .product-details-skeleton {
+    background-color: $skeletonGrey;
+    border-radius:20px;
+    height: 21px;
+    margin-top: 10px;
+    &:nth-child(1){
+      width: 60%;
+    }
+    &:nth-child(2){
+      width: 80%;
+    }
+    &:nth-child(3){
+      width: 50%;
+    }
+  }
+  .skeleton-btn {
+    background-color: $skeletonGrey !important;
+  }
   .buy-btn-wrapper {
     text-align: center;
     button{

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 // Third Pary imports
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule, AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
