@@ -1,8 +1,6 @@
 <mat-toolbar class="menu-toolbar">
   <img src="../../assets/icons/logo_transparent.png" alt="Vazi" class="logo-img" [routerLink]="['/']">
-  <div class="search-wrapper" fxHide.lt-md>
-    <input type="text" placeholder="search" color="primary">
-  </div>
+
   <div class="nav-spacer"></div>
 
   <div *ngIf="auth.user$ | async; then authenticated else signIn">

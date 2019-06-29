@@ -1,7 +1,15 @@
 @import '../../../../styles.scss';
 
+.body-wrapper {
+  background-image: url(../../../../assets/background/background.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
 .products-container-wrapper{
   margin: 20px;
   border-radius: 20px;
   min-height: 500px;
+  background-color: $pureWhite;
 }

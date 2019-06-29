@@ -4,9 +4,7 @@ import { SharedService } from '../../shared/shared.service';
 import * as _ from 'lodash';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-list',
@@ -24,6 +22,9 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.productsCollection$ = this.db.collection('products');
     this.productsObs$ = this.productsCollection$.valueChanges();
+    this.productsObs$.subscribe(data => {
+      console.log(data);
+    });
   }
 
   addToBasket(product: Product) {
