@@ -31,6 +31,12 @@ body { margin: 0; font-family: 'Abel', sans-serif;
   text-align: center;
 }
 
+.featured-products {
+  font-size: 25px;
+  margin: 40px 0px;
+  color: $purpleDark;
+}
+
 @mixin flexCenter ($direction){
   display: flex;
   justify-content: center;

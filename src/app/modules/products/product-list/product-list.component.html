@@ -1,16 +1,41 @@
-<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" class="body-wrapper">
-  <div fxFlex.gt-sm="80" fxFlex.lt-md="100" class="products-container-wrapper">
-    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
-      <div fxFlex.gt-sm="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let i of productsObs$ | async">
+<ng-container *ngIf="slectCategory$; else loadingTemp">
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" class="body-wrapper category-page-wrapper">
+    <div fxFlex="100" [ngStyle]="{'background-image': 'url('+slectCategory$.landingImg+')'}" class="category-banner">
+      &nbsp;
+    </div>
 
-        <ng-container *ngIf="productsObs$; else noDataTemp">
-          <app-product [data]="i"></app-product>
+    <div fxFlex="80" class="category-product-skeleton">
+      <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="gappx">
+        <div fxFlex="100" fxLayoutAlign="center center">
+          <h3 class="featured-products">{{slectCategory$.name | uppercase}}</h3>
+        </div>
+        <ng-container *ngIf="productsService.productsObs$ | async; else noDataTemp">
+          <div fxFlex.gt-sm="33" fxFlex.lt-md="50" fxFlex.xs="100">
+            <app-product [data]="i" *ngFor="let i of productsService.productsObs$ | async"></app-product>
+          </div>
         </ng-container>
         <ng-template #noDataTemp>
-          <app-product *ngFor="let i of [].constructor(6)"></app-product>
+          <p>Sorry, no data to display</p>
         </ng-template>
+      </div>
+    </div>
 
+  </div>
+</ng-container>
+<ng-template #loadingTemp>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" class="body-wrapper category-page-wrapper">
+    <div fxFlex="100">
+      <div class="banner-skeleton">&nbsp;</div>
+    </div>
+    <div fxFlex="80">
+      <div fxLayout="row wrap" fxLayoutGap="gappx" class="category-product-skeleton">
+        <div fxFlex="100" fxLayoutAlign="center center">
+          <h3 class="featured-products">CATEGORY</h3>
+        </div>
+        <div fxFlex.gt-sm="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let i of [].constructor(6)">
+          <app-product></app-product>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ng-template>

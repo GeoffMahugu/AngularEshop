@@ -38,6 +38,7 @@ const routes: Routes = [
     component: SkeletonComponent,
     data: { depth: 0 },
   }
+
 ];
 
 @NgModule({

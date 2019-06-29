@@ -1,12 +1,32 @@
-<div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="body-wrapper">
+<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" class="body-wrapper landing-wrapper">
   <div fxFlex="100">
     <mat-carousel [proportion]="30" [timings]="1200" [hideIndicators]="false" [useKeyboard]="true">
-      <mat-carousel-slide *ngFor="let i of carousel$" [image]="i.img" routerLink="/products/{{i.slug}}">
+      <mat-carousel-slide *ngFor="let i of carousel$" [image]="i.homepageImg" routerLink="/products/{{i.slug}}">
       </mat-carousel-slide>
     </mat-carousel>
   </div>
-  <!-- <div fxFlex="100">
-
-  </div> -->
+  <div fxFlex="100" fxLayoutAlign="center center">
+    <h3 class="featured-products">CATEGORIES</h3>
+  </div>
+  <div fxFlex="100" fxLayoutAlign="start start" class="category-wrapper">
+    <div *ngFor="let i of carousel$" class="category-item-wrapper" routerLink="/products/{{i.slug}}">
+      <img src="{{i.mobileImg}}" alt="{{i.name}}">
+    </div>
+  </div>
+  <div fxFlex="100" fxLayoutAlign="center center">
+    <h3 class="featured-products">FEATURED PRODUCTS</h3>
+  </div>
+  <div fxFlex="100">
+    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="gappx">
+      <div fxFlex.gt-sm="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let i of productsService.productsObs$ | async">
+        <ng-container *ngIf="productsService.productsObs$; else noDataTemp">
+          <app-product [data]="i"></app-product>
+        </ng-container>
+        <ng-template #noDataTemp>
+          <app-product *ngFor="let i of [].constructor(6)"></app-product>
+        </ng-template>
+      </div>
+    </div>
+  </div>
 
 </div>

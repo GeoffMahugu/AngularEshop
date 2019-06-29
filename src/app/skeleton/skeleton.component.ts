@@ -35,7 +35,7 @@ export class SkeletonComponent implements OnInit, OnDestroy {
   }
   updateSW() {
     this.updates.available.subscribe(event => {
-      const snack = this.snackbar.open('Update availabel', 'Reload');
+      const snack = this.snackbar.open('Update availabel', 'Update');
       snack.onAction().subscribe(() => {
         this.updates.activateUpdate().then(() => document.location.reload());
       });
