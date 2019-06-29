@@ -1,17 +1,34 @@
-<div class="product-wrapper">
-  <div class="product-img-wrapper">
-    <img src="{{data.img}}" alt="{{data.name}}">
+<ng-container *ngIf="data; else noDataTemp">
+  <div class="product-wrapper">
+    <div class="product-img-wrapper">
+      <img src="{{data.img}}" alt="{{data.name}}">
+    </div>
+    <div>
+      <span class="product-name">{{data.name}}</span>
+    </div>
+    <div class="price-container">
+      <span>{{data.price | number}} <sup>{{data.currency}}</sup></span>
+    </div>
+    <div class="description-wrapper">
+      <p>{{data.description}}</p>
+    </div>
+    <div class="buy-btn-wrapper">
+      <button mat-stroked-button color="primary" (click)="addToBasket();">Add to Cart</button>
+    </div>
   </div>
-  <div>
-    <span class="product-name">{{data.name}}</span>
+</ng-container>
+<ng-template #noDataTemp>
+  <div class="product-wrapper">
+    <div class="product-img-wrapper">
+      <div class="product-img-skeleton"> &nbsp;</div>
+    </div>
+    <div>
+      <div class="product-details-skeleton">&nbsp;</div>
+      <div class="product-details-skeleton">&nbsp;</div>
+      <div class="product-details-skeleton">&nbsp;</div>
+    </div>
+    <div class="buy-btn-wrapper">
+      <button mat-stroked-button class="skeleton-btn " [disabled]="true">Add to Cart</button>
+    </div>
   </div>
-  <div class="price-container">
-    <span>{{data.price | number}} <sup>{{data.currency}}</sup></span>
-  </div>
-  <div class="description-wrapper">
-    <p>{{data.description}}</p>
-  </div>
-  <div class="buy-btn-wrapper">
-    <button mat-stroked-button color="primary" (click)="addToBasket();">Add to Cart</button>
-  </div>
-</div>
+</ng-template>

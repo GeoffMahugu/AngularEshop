@@ -1,0 +1,12 @@
+<div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="body-wrapper">
+  <div fxFlex="100">
+    <mat-carousel [proportion]="30" [timings]="1200" [hideIndicators]="false" [useKeyboard]="true">
+      <mat-carousel-slide *ngFor="let i of carousel$" [image]="i.img" routerLink="/products/{{i.slug}}">
+      </mat-carousel-slide>
+    </mat-carousel>
+  </div>
+  <!-- <div fxFlex="100">
+
+  </div> -->
+
+</div>

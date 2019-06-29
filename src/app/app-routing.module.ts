@@ -12,6 +12,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        loadChildren: './modules/landing/landing.module#LandingModule',
+      },
+      {
+        path: 'products',
         loadChildren: './modules/products/products.module#ProductsModule',
       },
       {

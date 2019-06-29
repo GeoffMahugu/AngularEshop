@@ -2,15 +2,15 @@
   <div fxFlex.gt-sm="80" fxFlex.lt-md="100" class="products-container-wrapper">
     <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
       <div fxFlex.gt-sm="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let i of productsObs$ | async">
-        <app-product [data]="i"></app-product>
+
+        <ng-container *ngIf="productsObs$; else noDataTemp">
+          <app-product [data]="i"></app-product>
+        </ng-container>
+        <ng-template #noDataTemp>
+          <app-product *ngFor="let i of [].constructor(6)"></app-product>
+        </ng-template>
+
       </div>
     </div>
-    <!-- <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx">
-      <div fxFlex.gt-sm="50" fxFlex.lt-md="100">
-        <button mat-flat-button color="accent" class="but-button" (click)="sharedService.clearBasket();">Clear
-          Cart</button>
-      </div>
-    </div> -->
-
   </div>
 </div>
