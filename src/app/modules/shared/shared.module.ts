@@ -20,8 +20,9 @@ import {
   MatFormFieldModule,
   MatCheckboxModule,
   MatSelectModule,
-  MatInputModule,
+  MatInputModule
 } from '@angular/material';
+
 import { ProductComponent } from './product/product.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -37,6 +38,8 @@ import { FooterComponent } from './footer/footer.component';
       preset: intersectionObserverPreset
     }),
     FlexLayoutModule,
+    ServiceWorkerModule,
+
     MatSnackBarModule,
     MatButtonModule,
     MatToolbarModule,
@@ -47,8 +50,7 @@ import { FooterComponent } from './footer/footer.component';
     MatCheckboxModule,
     MatSelectModule,
     MatOptionModule,
-    MatInputModule,
-    ServiceWorkerModule
+    MatInputModule
   ],
   exports: [
     RouterModule,
@@ -73,8 +75,7 @@ import { FooterComponent } from './footer/footer.component';
     MatCheckboxModule,
     MatOptionModule,
     MatInputModule,
-    MatSelectModule,
-
+    MatSelectModule
   ]
 })
 export class SharedModule { }

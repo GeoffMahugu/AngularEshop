@@ -21,6 +21,7 @@ body { margin: 0; font-family: 'Abel', sans-serif;
   font-family: 'Open Sans Condensed', sans-serif; }
 .body-wrapper {
   padding-top: 60px;
+  min-height: -webkit-fill-available;
 }
 .custom-back-btn {
   margin: 20px 0px;
