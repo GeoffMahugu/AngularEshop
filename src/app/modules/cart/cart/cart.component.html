@@ -1,17 +1,105 @@
-<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" class="body-wrapper">
+<div fxLayout="row wrap" fxLayoutAlign="center start" fxLayoutGap="gappx" class="body-wrapper cart-review-wrapper">
   <div fxFlex.gt-sm="40" fxFlex.lt-md="100" class="cart-wrapper">
     <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
       <div fxFlex="100">
-        <h1 class="cart-header">Cart</h1>
+        <h1 class="cart-header">Select a shipping address
+        </h1>
+      </div>
+      <div fxFlex="100">
+        <form [formGroup]="shippingFormGroup" class="shipping-form" fxLayout="row wrap" fxLayoutAlign="start start">
+          <div fxFlex="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Address line 1:
+              </mat-label>
+              <input matInput placeholder="Address line 1:" name="address_1" formControlName="address_1">
+              <mat-hint>Street Address, P.O Box, Company name, c/o</mat-hint>
+              <mat-error
+                *ngIf="!shippingFormGroup.controls['address_1'].valid && shippingFormGroup.controls['address_1'].dirty">
+                Please provide an address </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Address line 2:
+              </mat-label>
+              <input matInput placeholder="Address line 2:" name="address_2" formControlName="address_2">
+              <mat-hint>Appartment, suite, unit, building, floor, etc</mat-hint>
+            </mat-form-field>
+          </div>
+          <div fxFlex.gt-sm="40" fxFlex.lt-md="100">
+            <mat-form-field>
+              <mat-select placeholder="Country" name="country" formControlName="country">
+                <mat-option *ngFor="let i of countries" value="{{i.name}}">{{i.name}}</mat-option>
+              </mat-select>
+              <mat-error
+                *ngIf="!shippingFormGroup.controls['country'].valid && shippingFormGroup.controls['country'].dirty">
+                Please
+                select your country </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex.gt-sm="40" fxFlex.lt-md="100" [ngStyle.gt-sm]="{'margin-left':'30px'}">
+            <mat-form-field>
+              <mat-label>City </mat-label>
+              <input matInput placeholder="City" name="city" formControlName="city">
+              <mat-error *ngIf="!shippingFormGroup.controls['city'].valid && shippingFormGroup.controls['city'].dirty">
+                Please provide shipping city </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="40">
+            <mat-form-field appearance="outline">
+              <mat-label>State </mat-label>
+              <input matInput placeholder="State" name="state" formControlName="state">
+              <mat-error
+                *ngIf="!shippingFormGroup.controls['state'].valid && shippingFormGroup.controls['state'].dirty">
+                Please provide shipping state </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="40" style="margin-left:30px">
+            <mat-form-field appearance="outline">
+              <mat-label>Zip </mat-label>
+              <input matInput type="number" placeholder="Zip" name="zip" formControlName="zip">
+              <mat-error *ngIf="!shippingFormGroup.controls['zip'].valid && shippingFormGroup.controls['zip'].dirty">
+                Please provide shipping Zip code </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100">
+            <mat-form-field appearance="outline">
+              <mat-label>Phone number </mat-label>
+              <mat-icon matSuffix>phone</mat-icon>
+              <input matInput placeholder="Phone number" name="phone_number" formControlName="phone_number">
+              <mat-error
+                *ngIf="!shippingFormGroup.controls['phone_number'].valid && shippingFormGroup.controls['phone_number'].dirty">
+                Please provide your phone number </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="100">
+            <mat-form-field appearance="outline">
+              <textarea matInput placeholder="Delivery details" name="details" formControlName="details"></textarea>
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div fxFlex.gt-sm="40" fxFlex.lt-md="100" class="cart-wrapper">
+    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
+      <div fxFlex="100">
+        <h1 class="cart-header">Review Cart</h1>
       </div>
       <div fxFlex="100">
         <ng-container *ngIf="basketCount; else noCartTemp">
           <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="product-item"
             *ngFor="let i of cart.basket">
-            <div fxFlex.gt-sm="20" fxFlex.lt-md="40">
+            <div fxFlex.gt-sm="30" fxFlex.lt-md="40" class="cart-product-img-wrapper">
               <img src="{{i.img}}" alt="{{i.name}}" class="cart-product-img">
             </div>
-            <div fxFlex.gt-sm="20" fxFlex.lt-md="60">
+            <div fxFlex.gt-sm="70" fxFlex.lt-md="60" class="cart-product-details-wrapper">
+              <div>
+                <mat-icon (click)="sharedService.removeFromBasket(i)">close</mat-icon>
+              </div>
               <span class="cart-product-name">{{i.name}}</span><br />
               <span>{{i.category}}</span><br />
               <span class="cart-product-price">{{i.price | number}} <sup>{{i.currency}}</sup></span>
@@ -23,8 +111,8 @@
                 style="width: 80%;">Continue Shopping</button>
             </div>
             <div fxFlex="50">
-              <button mat-flat-button color="primary" class="custom-back-btn" (click)="checkout()"
-                style="width: 80%;">Checkout</button>
+              <button mat-flat-button color="primary" [disabled]="!shippingFormGroup.valid" class="custom-back-btn"
+                (click)="checkout()" style="width: 80%;">Checkout</button>
             </div>
           </div>
 
@@ -54,10 +142,8 @@
             </div>
           </div>
         </ng-template>
-
-
-
       </div>
     </div>
   </div>
+
 </div>

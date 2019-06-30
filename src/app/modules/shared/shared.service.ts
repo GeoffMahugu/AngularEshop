@@ -45,7 +45,7 @@ export class SharedService {
 
   addToBasket(product: Product) {
     if (this.basket) {
-      const checher = _.findIndex(this.basket, (item) => { return item.slug === product.slug; });
+      const checher = _.findIndex(this.basket, (item) => item.slug === product.slug);
       if (checher === -1) {
         this.basket = [...this.basket, product];
         this.basketSource.next(this.basket);
@@ -58,8 +58,14 @@ export class SharedService {
       this.basketSource.next([product]);
       this.basket = [product];
       this.getCart();
-
     }
+  }
+  removeFromBasket(product: Product) {
+    this.basket = _.filter(this.basket, (item) => item.slug !== product.slug);
+    this.basketSource.next(this.basket);
+    this.snackbar.open('Product has been removed', 'CLOSE', { duration: 3000 });
+    this.getCart();
+    localStorage.setItem('basket', JSON.stringify(this.basket));
   }
   clearBasket() {
     this.basket = null;

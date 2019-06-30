@@ -1,6 +1,9 @@
 @import '../../../../styles';
 
 .footer-wrapper{
+  // position: absolute;
+  width: 100%;
+  // bottom: 0px;
   .footer-section-year {
     min-height: 60px;
     background-color: $skeletonGrey;
