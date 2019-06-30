@@ -7,7 +7,7 @@
   .cart-header {
     text-align: left;
     font-weight: 700;
-    color: var(--colors-text-purple-dark);
+    color:$purpleDark;
     font-size:20px;
   }
 
@@ -29,7 +29,7 @@
       right: 9%;
       margin-top: 10px;
       mat-icon {
-        color: #372953;
+        color:$purpleDark ;
         font-size: 19px;
         cursor: pointer;
       }
@@ -37,14 +37,32 @@
   }
   .cart-product-name {
     font-size: 18px;
-    color: var(--colors-text-purple-dark);
+    color: $purpleDark;
     font-weight: 600;
   }
   .cart-product-price {
     font-size: 15px;
     font-weight: 600;
-    color: var(--colors-text-purple);
+    color: $purpleDark;
   }
+  .cart-total-wrapper {
+    border-bottom: 1px solid $darkPink;
+    border-top: 1px solid $darkPink;
+    padding: 20px 0px;
+
+    .cart-total, .cart-amt-txt {
+      font-weight: bold;
+    }
+    .cart-total {
+      color: $purpleDark;
+      font-size: 20px;
+    }
+    .cart-amt-txt {
+      color: $darkPink;
+      font-size: 15px;
+    }
+  }
+
   /* cart product end --------------- */
 
   /* Skeleton Start --------------- */

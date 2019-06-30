@@ -23,9 +23,7 @@ export class SharedService {
 
   constructor(private router: Router, private snackbar: MatSnackBar, private push: SwPush) {
     this.basket = this.getLocalBasket();
-    this.basketSource.next(this.basket);
     this.cart = this.getLocalCart();
-    this.cartSource.next(this.cart);
   }
 
   getLocalBasket() {
@@ -33,6 +31,7 @@ export class SharedService {
     if (getLocalBasket) {
       this.basket = JSON.parse(getLocalBasket);
     }
+    this.basketSource.next(this.basket);
     return this.basket;
   }
   getLocalCart() {
@@ -40,6 +39,7 @@ export class SharedService {
     if (localCart) {
       this.cart = JSON.parse(localCart);
     }
+    this.cartSource.next(this.cart);
     return this.cart;
   }
 
