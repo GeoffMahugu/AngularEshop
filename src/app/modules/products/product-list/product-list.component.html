@@ -1,16 +1,49 @@
-<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" class="body-wrapper">
-  <div fxFlex.gt-sm="80" fxFlex.lt-md="100" class="products-container-wrapper">
-    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
-      <div fxFlex.gt-sm="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let i of productsObs$ | async">
+<ng-container *ngIf="selectCategory$; else loadingTemp">
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" class="body-wrapper category-page-wrapper">
+    <div fxFlex="100" [ngStyle]="{'background-image': 'url('+selectCategory$.landingImg+')'}" class="category-banner">
+      &nbsp;
+    </div>
 
-        <ng-container *ngIf="productsObs$; else noDataTemp">
+    <div fxFlex="80" class="category-product-skeleton">
+      <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="gappx">
+        <div fxFlex="100" fxLayoutAlign="center center">
+          <h3 class="featured-products">{{selectCategory$.name | uppercase}}</h3>
+        </div>
+
+        <div fxFlex.gt-sm="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let i of productsService.productsObs$ | async">
           <app-product [data]="i"></app-product>
+        </div>
+        <ng-container *ngIf="(productsService.productsObs$ | async)?.length == 0">
+          <div fxFlex="100" fxLayoutAlign="center center">
+            <mat-icon class="no-product-icon">sentiment_very_dissatisfied</mat-icon>
+          </div>
+          <div fxFlex="100" fxLayoutAlign="center center">
+            <p>Sorry, no products found</p>
+          </div>
+          <div fxFlex="100" fxLayoutAlign="center center">
+            <button mat-raised-button color="accent" [routerLink]="['/']">Continue Shopping</button>
+          </div>
         </ng-container>
-        <ng-template #noDataTemp>
-          <app-product *ngFor="let i of [].constructor(6)"></app-product>
-        </ng-template>
 
       </div>
     </div>
+
   </div>
-</div>
+</ng-container>
+<ng-template #loadingTemp>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="gappx" class="body-wrapper category-page-wrapper">
+    <div fxFlex="100">
+      <div class="banner-skeleton">&nbsp;</div>
+    </div>
+    <div fxFlex="80">
+      <div fxLayout="row wrap" fxLayoutGap="gappx" class="category-product-skeleton">
+        <div fxFlex="100" fxLayoutAlign="center center">
+          <h3 class="featured-products">CATEGORY</h3>
+        </div>
+        <div fxFlex.gt-sm="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let i of [].constructor(6)">
+          <app-product></app-product>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

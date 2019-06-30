@@ -14,7 +14,7 @@
   </ng-template>
 </mat-toolbar>
 <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="product-page-wrapper">
-  <div fxFlex="50">
+  <div fxFlex.gt-sm="50" fxFlex.lt-md="100">
     <form [formGroup]="productFormGroup" class="product-form-wrapper" fxLayout="row wrap" fxLayoutAlign="start start"
       fxLayoutGap="gappx">
       <div fxFlex="100" fxLayoutAlign="start start">
@@ -85,8 +85,11 @@
       </div>
     </form>
   </div>
-  <div fxFlex="50">
+  <div fxFlex.gt-sm="50" fxFlex.lt-md="100">
     <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
+      <div fxFlex="100">
+        <h3 class="title-text">Available Products</h3>
+      </div>
       <ng-container *ngIf="productsObs$; else loadingTemp">
         <div class="product-list-wrapper" *ngFor="let i of productsObs$ | async">
           <div fxFlex="40">

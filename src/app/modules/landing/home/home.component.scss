@@ -1,1 +1,23 @@
 @import '../../../../styles';
+.landing-wrapper {
+  .category-wrapper {
+   margin: 20px;
+   overflow-y: hidden;
+   overflow-x: scroll;
+   .category-item-wrapper {
+     height: 200px;
+     width: 400px;
+     min-width: 330px;
+     outline:none;
+     cursor: pointer;
+     img {
+      border-radius: 10px;
+      height: 99%;
+     }
+   }
+  }
+}
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}

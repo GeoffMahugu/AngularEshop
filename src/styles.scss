@@ -31,6 +31,12 @@ body { margin: 0; font-family: 'Abel', sans-serif;
   text-align: center;
 }
 
+.featured-products {
+  font-size: 25px;
+  margin: 40px 0px;
+  color: $purpleDark;
+}
+
 @mixin flexCenter ($direction){
   display: flex;
   justify-content: center;
@@ -57,3 +63,15 @@ body { margin: 0; font-family: 'Abel', sans-serif;
   }
 }
 // Product Section End   --------------->
+
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+}
