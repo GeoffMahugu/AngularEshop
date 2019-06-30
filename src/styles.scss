@@ -54,7 +54,7 @@ body { margin: 0; font-family: 'Abel', sans-serif;
 .price-container {
   font-size: 19px;
   font-weight: 700;
-  color: var(--colors-text-purple-dark);
+  color: $purpleDark;
 }
 .description-wrapper {
   max-height: 63px;

@@ -105,6 +105,14 @@
               <span class="cart-product-price">{{i.price | number}} <sup>{{i.currency}}</sup></span>
             </div>
           </div>
+          <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" class="cart-total-wrapper">
+            <div fxFlex="50">
+              <span class="cart-total">Total</span>
+            </div>
+            <div fxFlex="50" fxLayoutAlign="end start">
+              <span class="cart-amt-txt">{{cartTotal | number}}<sup>KSH</sup></span>
+            </div>
+          </div>
           <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx">
             <div fxFlex="50">
               <button mat-flat-button color="accent" class="custom-back-btn" [routerLink]="['/']"
