@@ -23,9 +23,10 @@ import {
   MatInputModule,
 } from '@angular/material';
 import { ProductComponent } from './product/product.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [ProductComponent],
+  declarations: [ProductComponent, FooterComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -53,9 +54,14 @@ import { ProductComponent } from './product/product.component';
     RouterModule,
     HttpClientModule,
     FormsModule,
+
+    ProductComponent,
+    FooterComponent,
+
     ReactiveFormsModule,
     LazyLoadImageModule,
     ServiceWorkerModule,
+
     FlexLayoutModule,
     MatSnackBarModule,
     MatButtonModule,
@@ -68,7 +74,7 @@ import { ProductComponent } from './product/product.component';
     MatOptionModule,
     MatInputModule,
     MatSelectModule,
-    ProductComponent
+
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,10 @@
+@import '../../../../styles';
+
+.footer-wrapper{
+  .footer-section-year {
+    min-height: 60px;
+    background-color: $skeletonGrey;
+    font-size: 14px;
+    color: $darkPink;
+  }
+}
