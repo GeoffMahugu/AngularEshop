@@ -12,7 +12,7 @@ import { CategoryModel, DefaultCategory } from '../../../models/category.model';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-  slectCategory$: CategoryModel;
+  selectCategory$: CategoryModel;
   public subs = new SubSink();
   constructor(
     private route: ActivatedRoute,
@@ -28,8 +28,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   }
   getCategory(category: string) {
-    this.slectCategory$ = _.find(DefaultCategory, data => data.slug === category);
-    this.productsService.getCategoryProducts(this.slectCategory$.name);
+    this.selectCategory$ = _.find(DefaultCategory, data => data.slug === category);
+    console.log('@@@@@@@@@@@@@@@@@@@');
+    console.log(this.selectCategory$);
+    console.log(category);
+    this.productsService.getCategoryProducts(this.selectCategory$.name);
   }
   ngOnDestroy() {
     this.subs.unsubscribe();

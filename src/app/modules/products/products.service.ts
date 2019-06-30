@@ -26,9 +26,16 @@ export class ProductsService {
     this.productsObs$ = this.productsCollection$.valueChanges();
   }
   getCategoryProducts(category: string) {
+
     this.productsCollection$ = this.db.collection('products', ref => {
-      return ref.where('category', '==', category);
+      return ref.where('category', '==', category)
     });
+    // this.productsCollection$ = this.db.collection('products');
+    // this.productsCollection$ = this.db.collection('products', ref => {
+    //   console.log('::::::::::::::::::::');
+    //   console.log(ref);
+    //   return ref
+    // });
     this.productsObs$ = this.productsCollection$.valueChanges();
   }
 }

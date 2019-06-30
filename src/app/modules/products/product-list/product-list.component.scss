@@ -33,4 +33,25 @@
     width: 100%;
     margin: 20px 0px;
   }
+  .no-product-icon {
+    font-size: 110px;
+    margin-left: -100px;
+    margin-bottom: 80px;
+  }
+  .no-product-txt, .no-product-icon {
+    color: $primaryGrey;
+  }
+  .no-product-txt {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  /* phones */
+  .category-banner{
+    height: 145px !important;
+    background-position: left !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
 }
