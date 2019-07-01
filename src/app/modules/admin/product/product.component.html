@@ -58,7 +58,7 @@
       </div>
       <div fxFlex="70">
         <mat-form-field>
-          <input matInput type="url" placeholder="Image Url" name="img" formControlName="img">
+          <input matInput type="text" placeholder="Image Url" name="img" formControlName="img">
           <mat-error *ngIf="!productFormGroup.controls['img'].valid && productFormGroup.controls['img'].dirty">
             Please
             provide a valid URL link</mat-error>

@@ -18,7 +18,8 @@ export class ProductsService {
 
   getTopProducts() {
     this.productsCollection$ = this.db.collection('products', ref => {
-      return ref.where('price', '>', 2000)
+      // return ref.where('price', '>', 2000)
+      return ref.where('category', '==', 'Electronics')
         .limit(6);
       // return ref.orderBy('name')
       //   .limit(6);
