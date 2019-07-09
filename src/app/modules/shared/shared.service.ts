@@ -57,6 +57,7 @@ export class SharedService {
     } else {
       this.basketSource.next([product]);
       this.basket = [product];
+      localStorage.setItem('basket', JSON.stringify(this.basket));
       this.getCart();
     }
   }
