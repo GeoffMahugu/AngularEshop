@@ -1,11 +1,11 @@
 # Eshop
-This an [Angular](https://angular.io) project thats a starter kit to anyone trying to build an ecommerce site.
+This an [Angular9](https://angular.io) project that's a starter kit to anyone trying to build an ecommerce site.
 
 ### Features Include
 * Lazy Loading
 * Service Worker
 * Push Notifications
-* Firebase Database and Hosting 
+* Firebase Database and Hosting;
 
 The project is being hosted on firebase🔥 at: [Demo](https://vazi-aa474.firebaseapp.com/)
 
