@@ -12,16 +12,4 @@ export const environment = {
   //   messagingSenderId: '123456789'                  // Cloud Messaging
   // },
   // publicKey: ''
-
-  firebaseConfig: { apiKey: 'AIzaSyDUbTvoLFuNumJEO8fLbBumWH1fLU1ZGkk', authDomain: 'vazi-aa474.firebaseapp.com', databaseURL: 'https://vazi-aa474.firebaseio.com', projectId: 'vazi-aa474', storageBucket: '', messagingSenderId: '145787836789', appId: '1:145787836789:web:d88a78a662d8760f' }, publicKey: 'BPXym4I47xqX9Zy4cw6ZVtOYkOOPPtM_nJcAr2y9wwzZTeT-cG9L4wg-HGJ0Ck4X2siDFT8Qekn3H1p6Y3t2FG8'
-
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
